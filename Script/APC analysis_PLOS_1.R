@@ -475,7 +475,7 @@ age.plot=
   theme(axis.text.x = element_text(angle = 45, hjust = 1))+
   theme(legend.position=c(0.8, 0.8))
 
-#ggsave("Figure2_713.png", path = figDir, age.plot, width = 7.5, height = 7.5, dpi = 300, bg = 'white')
+ggsave("Figure2_713.png", path = figDir, age.plot, width = 7.5, height = 7.5, dpi = 300, bg = 'white')
 ggsave("Figure2_713.eps", path = figDir, age.plot, width = 7.5, height = 7.5, dpi = 300, bg = 'white')
 
 
@@ -506,7 +506,7 @@ for (i in 1:4){
     theme_bw()+
     scale_linetype_manual(values=c("dotted","solid"))+
     theme(panel.grid.minor = element_blank(),panel.grid.major= element_blank())+
-    theme(legend.position="")
+    theme(legend.position="bottom")
   
   plot3.list[[i]]=plot3
 }
@@ -514,8 +514,8 @@ for (i in 1:4){
 plot3a=grid.arrange(plot3.list[[1]],plot3.list[[2]],plot3.list[[3]],plot3.list[[4]],
                     ncol=1,nrow=4)
 
-#ggsave("figure3_713.png",path = figDir, plot=plot3a,width=8.5,height=11, dpi = 300, bg = 'white')
-ggsave("figure3_713.eps",path = figDir, plot=plot3a,width=8.5,height=11, dpi = 300, bg = 'white')
+ggsave("figure3_713.png",path = figDir, plot=plot3a,width=8.5,height=12, dpi = 300, bg = 'white')
+ggsave("figure3_713.eps",path = figDir, plot=plot3a,width=8.5,height=12, dpi = 300, bg = 'white')
 
 ###############################################################################
 #appendix. APC-I model results
@@ -553,9 +553,9 @@ tb3.4=data.frame(table3a.list[4])
 
 app.tb3=data.frame(cohort=cohort,
                    ass.b=tb3.1$deviation, ass.se=tb3.1$s.e,ass.sig=tb3.1$sig,
-                   hom.b=tb3.1$deviation, hom.se=tb3.1$s.e,hom.sig=tb3.1$sig,
-                   pro.b=tb3.1$deviation, pro.se=tb3.1$s.e,pro.sig=tb3.1$sig,
-                   fra.b=tb3.1$deviation, fra.se=tb3.1$s.e,fra.sig=tb3.1$sig
+                   hom.b=tb3.2$deviation, hom.se=tb3.2$s.e,hom.sig=tb3.2$sig,
+                   pro.b=tb3.3$deviation, pro.se=tb3.3$s.e,pro.sig=tb3.3$sig,
+                   fra.b=tb3.4$deviation, fra.se=tb3.4$s.e,fra.sig=tb3.4$sig
 )
 write.csv(app.tb3,file=file.path(outDir,"appendix_tb3.csv"), row.names = FALSE)
 

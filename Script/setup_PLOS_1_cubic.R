@@ -1,4 +1,7 @@
-#Data set up: South Korea APC analysis#
+################################################################################
+################################################################################
+#descriptive: replicate Figure 1 using alternative interpolation method
+##Data set up: South Korea APC analysis#
 #created: 5/18/2023#
 #Updated: 5/18/2023 by YL#
 
@@ -98,7 +101,8 @@ age2665=NULL
 for (i in 1:350){
   a=as.numeric(dt1[i,14:20])
   a[2]=a[2]/5; a[3]=a[3]/5; a[4]=a[4]/5;a[5]=a[5]/10;a[6]=a[6]/10;a[7]=a[7]/10
-  b=approx(c(25,28,33,38,45,55,65),a,round(25:65))$y
+  #b=approx(c(25,28,33,38,45,55,65),a,round(25:65))$y
+  b=spline(c(25,28,33,38,45,55,65),a,length(25:65),method="natural")$y
   c=b[2:41]
   age2665=rbind(age2665,c)
 }
@@ -141,7 +145,8 @@ age2665=NULL
 for (i in 1:72){
   a=as.numeric(dt2[i,14:22])
   a[2]=a[2]/5; a[3]=a[3]/5; a[4]=a[4]/5;a[5]=a[5]/5;a[6]=a[6]/5;a[7]=a[7]/5; a[8]=a[8]/5;a[9]=a[9]/10
-  b=approx(c(25,28,33,38,43,48,53,58,65),a,round(25:65))$y
+  #b=approx(c(25,28,33,38,43,48,53,58,65),a,round(25:65))$y
+  b=spline(c(25,28,33,38,43,48,53,58,65),a,length(25:65),method="natural")$y
   c=b[2:41]
   age2665=rbind(age2665,c)
 }
@@ -203,7 +208,7 @@ dt.f$count=round(dt.f$count,0)
 dt.f$rate=dt.f$count/dt.f$tot_p*100000
 dt.f$cohort=dt.f$yr.n-dt.f$age.n
 
-write.csv(dt.f, file=file.path(dataDir,"data.csv"), row.names=FALSE)
+write.csv(dt.f, file=file.path(dataDir,"data_spline.csv"), row.names=FALSE)
 
 #end here: this is the full raw data set for SK age-specific arrests
 

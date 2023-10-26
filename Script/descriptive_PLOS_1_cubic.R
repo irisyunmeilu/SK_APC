@@ -1,3 +1,6 @@
+################################################################################
+################################################################################
+#descriptive: replicate Figure 1 using alternative interpolation method
 #Descriptive analysis: South Korea APC analysis#
 #created: 6/20/2023#
 #Updated: 6/26/2023 by YL#
@@ -63,7 +66,7 @@ if (!dir.exists(here::here(figDir))){
 
 ###############################################################################
 ################################################################################
-dt.f <- read.csv("Data/data.csv")
+dt.f <- read.csv("Data/data_spline.csv") # read this data for robustness check of 
 #6/23/2023: combine some of the offense categories
 # assault=assault+battery+injury 
 # fraud = fraud
@@ -97,10 +100,10 @@ dt.5=rbind(vio1,prop,fraud, murder)
 
 #now the dataframe is set up for analysis#
 #--------------------------------------------------------------------------------
-  #for 4/5 offenses only"dt.5", graphing for 1980, 2000, 2020
-  #calculate PAI
-  #sum rates by offense types and by years
-  #calculate PAI
+#for 4/5 offenses only"dt.5", graphing for 1980, 2000, 2020
+#calculate PAI
+#sum rates by offense types and by years
+#calculate PAI
 dt.5<-subset(dt.5, age.n<57)
 dt.5<-dt.5%>% 
   group_by(c3, yr.n)%>%
@@ -157,8 +160,8 @@ figure1=grid.arrange(figure1a.list[[1]],figure1a.list[[2]],
                      figure1a.list[[3]], figure1a.list[[4]],
                      ncol=1,nrow=4)
 
-#ggsave("Figure1_1024.png", path = figDir, figure1, width = 7.5, height = 10, dpi = 300, bg = 'white')
-ggsave("Figure1_1024.eps", path = figDir, figure1, width = 7.5, height = 10, dpi = 300, bg = 'white')
+ggsave("Figure1_1024_cubic.png", path = figDir, figure1, width = 7.5, height = 10, dpi = 300, bg = 'white')
+ggsave("Figure1_1024_cubic.eps", path = figDir, figure1, width = 7.5, height = 10, dpi = 300, bg = 'white')
 
 
 ################################################################################
