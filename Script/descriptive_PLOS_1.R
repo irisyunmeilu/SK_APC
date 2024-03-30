@@ -1,8 +1,7 @@
 #Descriptive analysis: South Korea APC analysis#
 #created: 6/20/2023#
-#Updated: 6/26/2023 by YL#
 #updated: 7/13/2023 Dropped the last age group--stopped at age 54#
-
+#Updated: 1/22/2024 by YL#
 
 library(extrafont)
 font_import()
@@ -157,7 +156,7 @@ figure1=grid.arrange(figure1a.list[[1]],figure1a.list[[2]],
                      figure1a.list[[3]], figure1a.list[[4]],
                      ncol=1,nrow=4)
 
-#ggsave("Figure1_1024.png", path = figDir, figure1, width = 7.5, height = 10, dpi = 300, bg = 'white')
+ggsave("Figure1_1024.png", path = figDir, figure1, width = 7.5, height = 10, dpi = 300, bg = 'white')
 ggsave("Figure1_1024.eps", path = figDir, figure1, width = 7.5, height = 10, dpi = 300, bg = 'white')
 
 

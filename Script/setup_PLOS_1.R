@@ -1,6 +1,6 @@
 #Data set up: South Korea APC analysis#
 #created: 5/18/2023#
-#Updated: 5/18/2023 by YL#
+#Updated: 1/20/2024 by YL#
 
 # Installs and loads packages automatically
 library("pacman")                  # Load pacman package
@@ -204,6 +204,7 @@ dt.f$rate=dt.f$count/dt.f$tot_p*100000
 dt.f$cohort=dt.f$yr.n-dt.f$age.n
 
 write.csv(dt.f, file=file.path(dataDir,"data.csv"), row.names=FALSE)
+
 
 #end here: this is the full raw data set for SK age-specific arrests
 

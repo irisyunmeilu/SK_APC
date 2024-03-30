@@ -1,9 +1,9 @@
 ################################################################################
 ################################################################################
-#descriptive: replicate Figure 1 using alternative interpolation method
+#Supplemental analysis: setting up the dataset with cubic spline interpolation#
 ##Data set up: South Korea APC analysis#
 #created: 5/18/2023#
-#Updated: 5/18/2023 by YL#
+#Updated: 10/25/2023 by YL#
 
 # Installs and loads packages automatically
 library("pacman")                  # Load pacman package

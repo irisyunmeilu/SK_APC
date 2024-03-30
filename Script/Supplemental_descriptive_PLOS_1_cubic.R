@@ -1,11 +1,10 @@
 ################################################################################
 ################################################################################
-#descriptive: replicate Figure 1 using alternative interpolation method
+#Supplemental analysis: descriptive analysis using dataset interpolated with CUBIC spline method#
 #Descriptive analysis: South Korea APC analysis#
 #created: 6/20/2023#
-#Updated: 6/26/2023 by YL#
 #updated: 7/13/2023 Dropped the last age group--stopped at age 54#
-
+#Updated: 10/25/2023 by YL#
 
 library(extrafont)
 font_import()
